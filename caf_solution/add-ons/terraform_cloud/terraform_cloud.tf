@@ -14,7 +14,7 @@ resource "tfe_workspace" "tfe_wks" {
   for_each = try(var.tfe_workspaces, {})
 
   name                  = each.value.name
-  organization          = tfe_organization.tfe_org[each.value.organization_key].name
+  organization          = data.tfe_organization.existing
   auto_apply            = try(each.value.auto_apply, false)
   file_triggers_enabled = try(each.value.file_triggers_enabled, true)
   operations            = try(each.value.operations, true)
