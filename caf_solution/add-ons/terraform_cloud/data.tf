@@ -4,5 +4,5 @@ data "tfe_organization" "existing" {
 
 data "tfe_team" "existing" {
   name         = var.tfe_existing_team_name
-  organization = tfe_organization.existing
+  organization = data.tfe_organization.existing.name
 }
