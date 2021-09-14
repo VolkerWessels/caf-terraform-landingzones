@@ -14,7 +14,7 @@ resource "tfe_workspace" "tfe_wks" {
   for_each = try(var.tfe_workspaces, {})
 
   name                  = each.value.name
-  organization          = data.tfe_organization.existing
+  organization          = data.tfe_organization.existing.name
   auto_apply            = try(each.value.auto_apply, false)
   file_triggers_enabled = try(each.value.file_triggers_enabled, true)
   operations            = try(each.value.operations, true)
@@ -63,7 +63,7 @@ resource "null_resource" "backend_file" {
   }
   provisioner "local-exec" {
     working_dir = "./"
-    command     = "echo organization = \\\"${data.tfe_organization.existing}\\\" >> ${path.cwd}${each.value.backend_file}"
+    command     = "echo organization = \\\"${data.tfe_organization.existing.name}\\\" >> ${path.cwd}${each.value.backend_file}"
   }
 }
 
