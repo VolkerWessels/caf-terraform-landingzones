@@ -1,20 +1,27 @@
 
-resource "tfe_organization" "tfe_org" {
+//resource "tfe_organization" "tfe_org" {
+//  for_each = try(var.tfe_organizations, {})
+//
+//  name                     = each.value.name
+//  email                    = each.value.email
+//  session_timeout_minutes  = try(each.value.session_timeout_minutes, 20160)
+//  session_remember_minutes = try(each.value.session_remember_minutes, 20160)
+//  collaborator_auth_policy = try(each.value.collaborator_auth_policy, "password")
+//  owners_team_saml_role_id = try(each.value.owners_team_saml_role_id, null)
+//}
+
+data "tfe_organization" "tfe_org" {
   for_each = try(var.tfe_organizations, {})
 
   name                     = each.value.name
-  email                    = each.value.email
-  session_timeout_minutes  = try(each.value.session_timeout_minutes, 20160)
-  session_remember_minutes = try(each.value.session_remember_minutes, 20160)
-  collaborator_auth_policy = try(each.value.collaborator_auth_policy, "password")
-  owners_team_saml_role_id = try(each.value.owners_team_saml_role_id, null)
 }
+
 
 resource "tfe_workspace" "tfe_wks" {
   for_each = try(var.tfe_workspaces, {})
 
   name                  = each.value.name
-  organization          = data.tfe_organization.existing.name
+  organization          = data.tfe_organization.tfe_org[each.value.organization_key].name
   auto_apply            = try(each.value.auto_apply, false)
   file_triggers_enabled = try(each.value.file_triggers_enabled, true)
   operations            = try(each.value.operations, true)
@@ -63,7 +70,7 @@ resource "null_resource" "backend_file" {
   }
   provisioner "local-exec" {
     working_dir = "./"
-    command     = "echo organization = \\\"${data.tfe_organization.existing.name}\\\" >> ${path.cwd}${each.value.backend_file}"
+    command     = "echo organization = \\\"${data.tfe_organization.tfe_org[each.value.organization_key].name}\\\" >> ${path.cwd}${each.value.backend_file}"
   }
 }
 

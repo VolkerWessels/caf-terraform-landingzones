@@ -83,11 +83,3 @@ variable "tfe_servers" {
 variable "tfe_agents" {
   default = {}
 }
-
-variable "tfe_existing_organization_name" {
-  default = {}
-}
-
-variable "tfe_existing_team_name" {
-  default = {}
-}
