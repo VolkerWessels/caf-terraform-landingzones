@@ -102,11 +102,11 @@ module "vm_extension_custom_scriptextension" {
 
   for_each = {
     for key, value in try(var.virtual_machines, {}) : key => value
-    if try(value.virtual_machine_extensions.custom_scriptextension, null) != null
+    if try(value.virtual_machine_extensions.custom_script, null) != null
   }
 
   client_config      = module.solution.client_config
   virtual_machine_id = module.solution.virtual_machines[each.key].id
   extension          = each.value.virtual_machine_extensions.custom_scriptextension
-  extension_name     = "custom_scriptextension"
+  extension_name     = "custom_script"
 }
