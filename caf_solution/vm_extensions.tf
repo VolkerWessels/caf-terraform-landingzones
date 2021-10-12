@@ -107,6 +107,6 @@ module "vm_extension_custom_scriptextension" {
 
   client_config      = module.solution.client_config
   virtual_machine_id = module.solution.virtual_machines[each.key].id
-  extension          = each.value.virtual_machine_extensions.custom_scriptextension
+  extension          = each.value.virtual_machine_extensions.custom_script
   extension_name     = "custom_script"
 }
