@@ -109,4 +109,5 @@ module "vm_extension_custom_scriptextension" {
   virtual_machine_id = module.solution.virtual_machines[each.key].id
   extension          = each.value.virtual_machine_extensions.custom_script
   extension_name     = "custom_script"
+  managed_identities = merge(tomap({ (var.landingzone.key) = module.solution.managed_identities }), try(local.remote.managed_identities, {}))
 }
