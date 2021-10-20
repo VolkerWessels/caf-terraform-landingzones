@@ -10,7 +10,7 @@ module "vmss_extension_microsoft_azure_domainjoin" {
 
   for_each = {
     for key, value in try(var.virtual_machine_scale_sets, {}) : key => value
-    if try(value.virtual_machine_extensions.microsoft_azure_domainjoin, null) != null
+    if try(value.virtual_machine_scale_set_extensions.microsoft_azure_domainjoin, null) != null
   }
 
   client_config      = module.solution.client_config
