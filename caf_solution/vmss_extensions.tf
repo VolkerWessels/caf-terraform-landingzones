@@ -14,7 +14,7 @@ module "vmss_extension_microsoft_azure_domainjoin" {
   }
 
   client_config      = module.solution.client_config
-  virtual_machine_scale_set_id = module.solution.virtual_machine_scale_set[each.key].id
+  virtual_machine_scale_set_id = module.solution.virtual_machine_scale_sets[each.key].id
   extension          = each.value.virtual_machine_scale_set.extensions.microsoft_azure_domainjoin
   extension_name     = "microsoft_azure_domainJoin"
   keyvaults          = merge(tomap({ (var.landingzone.key) = module.solution.keyvaults }), try(local.remote.keyvaults, {}))
@@ -33,7 +33,7 @@ module "vmss_extension_custom_scriptextension" {
   }
 
   client_config      = module.solution.client_config
-  virtual_machine_scale_set_id = module.solution.virtual_machine_scale_set[each.key].id
+  virtual_machine_scale_set_id = module.solution.virtual_machine_scale_sets[each.key].id
   extension          = each.value.virtual_machine_scale_set_extensions.custom_script
   extension_name     = "custom_script"
   managed_identities = merge(tomap({ (var.landingzone.key) = module.solution.managed_identities }), try(local.remote.managed_identities, {}))
