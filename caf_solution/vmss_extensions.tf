@@ -15,7 +15,7 @@ module "vmss_extension_microsoft_azure_domainjoin" {
 
   client_config      = module.solution.client_config
   virtual_machine_scale_set_id = module.solution.virtual_machine_scale_sets[each.key].id
-  extension          = each.value.virtual_machine_scale_set.extensions.microsoft_azure_domainjoin
+  extension          = each.value.virtual_machine_scale_set_extensions.microsoft_azure_domainjoin
   extension_name     = "microsoft_azure_domainJoin"
   keyvaults          = merge(tomap({ (var.landingzone.key) = module.solution.keyvaults }), try(local.remote.keyvaults, {}))
 }
