@@ -21,20 +21,20 @@ module "vmss_extension_microsoft_azure_domainjoin" {
 }
 
 
-module "vmss_extension_custom_scriptextension" {
-  source  = "github.com/volkerwessels/terraform-azurerm-caf//modules/compute/virtual_machine_scale_set_extensions?ref=5.4.0-modified"
-  #version = "~>5.4.0"
+# module "vmss_extension_custom_scriptextension" {
+#   source  = "github.com/volkerwessels/terraform-azurerm-caf//modules/compute/virtual_machine_scale_set_extensions?ref=5.4.0-modified"
+#   #version = "~>5.4.0"
 
-  depends_on = [module.solution]
+#   depends_on = [module.solution]
 
-  for_each = {
-    for key, value in try(var.virtual_machine_scale_sets, {}) : key => value
-    if try(value.virtual_machine_scale_set_extensions.custom_script, null) != null
-  }
+#   for_each = {
+#     for key, value in try(var.virtual_machine_scale_sets, {}) : key => value
+#     if try(value.virtual_machine_scale_set_extensions.custom_script, null) != null
+#   }
 
-  client_config      = module.solution.client_config
-  virtual_machine_scale_set_id = module.solution.virtual_machine_scale_sets[each.key].id
-  extension          = each.value.virtual_machine_scale_set_extensions.custom_script
-  extension_name     = "custom_script"
-  managed_identities = merge(tomap({ (var.landingzone.key) = module.solution.managed_identities }), try(local.remote.managed_identities, {}))
-}
+#   client_config      = module.solution.client_config
+#   virtual_machine_scale_set_id = module.solution.virtual_machine_scale_sets[each.key].id
+#   extension          = each.value.virtual_machine_scale_set_extensions.custom_script
+#   extension_name     = "custom_script"
+#   managed_identities = merge(tomap({ (var.landingzone.key) = module.solution.managed_identities }), try(local.remote.managed_identities, {}))
+# }
