@@ -19,8 +19,8 @@ terraform {
       version = "~> 2.2.0"
     }
     azurecaf = {
-      #source  = "aztfmod/azurecaf"
-      source  = "git::https://github.com/volkerwessels/terraform-azurerm-caf?ref=5.4.0-modified"
+      source  = "aztfmod/azurecaf"
+      #source  = "git::https://github.com/volkerwessels/terraform-azurerm-caf?ref=5.4.0-modified"
       #source = "git::https://example.com/vpc.git?ref=v1.2.0"
       #version = "~>1.2.0"
     }
