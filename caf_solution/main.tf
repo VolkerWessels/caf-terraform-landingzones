@@ -20,8 +20,8 @@ terraform {
     }
     azurecaf = {
       #source  = "aztfmod/azurecaf"
-      source  = "github.com/volkerwessels/terraform-azurerm-caf?ref=5.4.0-modified"
-
+      source  = "git::https://github.com/volkerwessels/terraform-azurerm-caf?ref=5.4.0-modified"
+      #source = "git::https://example.com/vpc.git?ref=v1.2.0"
       #version = "~>1.2.0"
     }
   }
