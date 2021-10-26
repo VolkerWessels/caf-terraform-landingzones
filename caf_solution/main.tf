@@ -18,14 +18,10 @@ terraform {
       source  = "hashicorp/tls"
       version = "~> 2.2.0"
     }
-    azuread = {
-      source  = "hashicorp/azuread"
-      version = "~> 2.7.0"
-    }
     azurecaf = {
       source  = "aztfmod/azurecaf"
       version = "~>1.2.0"
-      #source = "git::https://github.com/volkerwessels/terraform-azurerm-caf?ref=5.4.0-modified"
+      #source  = "git::https://github.com/volkerwessels/terraform-azurerm-caf?ref=5.4.0-modified"
       #source = "git::https://example.com/vpc.git?ref=v1.2.0"
     }
   }
