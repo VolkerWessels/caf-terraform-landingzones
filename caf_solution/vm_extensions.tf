@@ -95,7 +95,7 @@ module "vm_extension_session_host_dscextension" {
 }
 
 module "vm_extension_custom_scriptextension" {
-  source  = "github.com/volkerwessels/terraform-azurerm-caf//modules/compute/virtual_machine_extensions?ref=5.4.0-modified"
+  source  = "github.com/volkerwessels/terraform-azurerm-caf//modules/compute/virtual_machine_extensions?ref=cse-v2"
   #version = "~>5.4.0"
 
   depends_on = [module.solution]
@@ -110,4 +110,5 @@ module "vm_extension_custom_scriptextension" {
   extension          = each.value.virtual_machine_extensions.custom_script
   extension_name     = "custom_script"
   managed_identities = merge(tomap({ (var.landingzone.key) = module.solution.managed_identities }), try(local.remote.managed_identities, {}))
+  storage_accounts   = merge(tomap({ (var.landingzone.key) = module.solution.storage_accounts }), try(local.remote.storage_accounts, {}))
 }
