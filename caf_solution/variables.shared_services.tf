@@ -35,3 +35,7 @@ variable "recovery_vaults" {
 variable "shared_image_galleries" {
   default = {}
 }
+
+variable "monitor_autoscale_setting" {
+  default = {}
+}
