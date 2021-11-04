@@ -8,6 +8,5 @@ module "monitor_autoscale_setting" {
     if try(value.profile, null) != null
   }
 
-  default_region = module.solution.default_region
   monitor_autoscale_setting = var.monitor_autoscale_setting
 }
