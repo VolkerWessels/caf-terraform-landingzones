@@ -1,5 +1,5 @@
 module "monitor_autoscale_setting" {
-  source = "git::https://github.com/VolkerWessels/terraform-azurerm-caf.git//monitoring/monitor_autoscale_setting?ref=feature/monitor-autoscale-setting"
+  source = "github.com/VolkerWessels/terraform-azurerm-caf.git//monitoring/monitor_autoscale_setting?ref=feature/monitor-autoscale-setting"
   version = "~>5.4.0"
 
   depends_on = [module.solution]
