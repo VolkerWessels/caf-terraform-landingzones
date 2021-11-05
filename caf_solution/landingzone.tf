@@ -32,7 +32,6 @@ module "solution" {
   managed_identities                    = var.managed_identities
   networking                            = local.networking
   random_strings                        = var.random_strings
-  monitor_autoscale_settings            = var.monitor_autoscale_settings
   remote_objects                        = local.remote
   resource_groups                       = var.resource_groups
   role_mapping                          = var.role_mapping
