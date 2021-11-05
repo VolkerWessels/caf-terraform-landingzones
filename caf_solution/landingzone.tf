@@ -1,6 +1,5 @@
 module "solution" {
   source = "github.com/VolkerWessels/terraform-azurerm-caf?ref=monitor-autoscale-setting"
-  version = "~>5.4.2"
 
   # source = "git::https://github.com/aztfmod/terraform-azurerm-caf.git?ref=patch.5.4.6"
   # source = "../../aztfmod"
