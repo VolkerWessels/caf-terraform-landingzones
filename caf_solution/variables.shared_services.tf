@@ -36,6 +36,6 @@ variable "shared_image_galleries" {
   default = {}
 }
 
-variable "monitor_autoscale_setting" {
+variable "monitor_autoscale_settings" {
   default = {}
 }
