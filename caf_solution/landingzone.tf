@@ -1,5 +1,5 @@
 module "solution" {
-  source  = "aztfmod/caf/azurerm"
+  source = "github.com/VolkerWessels/terraform-azurerm-caf?ref=monitor-autoscale-setting"
   version = "~>5.4.2"
 
   # source = "git::https://github.com/aztfmod/terraform-azurerm-caf.git?ref=patch.5.4.6"
@@ -33,6 +33,7 @@ module "solution" {
   managed_identities                    = var.managed_identities
   networking                            = local.networking
   random_strings                        = var.random_strings
+  monitor_autoscale_settings            = var.monitor_autoscale_settings
   remote_objects                        = local.remote
   resource_groups                       = var.resource_groups
   role_mapping                          = var.role_mapping
