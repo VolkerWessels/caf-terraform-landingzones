@@ -37,7 +37,6 @@ variable "shared_image_galleries" {
 }
 
 variable "monitor_autoscale_settings" {
-  type = map
   default = {}
   description = "The map from the monitor_autoscale_settings module configuration"
 }
