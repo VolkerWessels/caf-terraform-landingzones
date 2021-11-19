@@ -2,7 +2,7 @@ module "vmss_extension_microsoft_azure_domainjoin" {
   source  = "github.com/volkerwessels/terraform-azurerm-caf//modules/compute/virtual_machine_scale_set_extensions?ref=vmss-extensions-autoscale-combined"
   #version = "~>5.4.0"
 
-  depends_on = [module.solution]
+  depends_on = [module.vm_extension_microsoft_azure_domainjoin] #run after domain join
 
   for_each = {
     for key, value in try(var.virtual_machine_scale_sets, {}) : key => value
