@@ -2,7 +2,7 @@ module "solution" {
   #source  = "aztfmod/caf/azurerm"
   #version = "~>5.4.2"
 
-  source = "https://github.com/VolkerWessels/terraform-azurerm-caf.git?ref=vmss-extensions-autoscale-combined"
+  source = "github.com/VolkerWessels/terraform-azurerm-caf?ref=vmss-extensions-autoscale-combined"
   # source = "../../aztfmod"
 
   azuread                               = local.azuread
