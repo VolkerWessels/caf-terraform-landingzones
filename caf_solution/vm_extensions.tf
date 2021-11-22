@@ -97,7 +97,7 @@ module "vm_extension_session_host_dscextension" {
 module "vm_extension_custom_scriptextension" {
   #source  = "aztfmod/caf/azurerm//modules/compute/virtual_machine_extensions"
   #version = "~>5.4.0"
-  source = "github.com/VolkerWessels/terraform-azurerm-caf?ref=vmss-extensions-autoscale-combined"
+  source = "github.com/VolkerWessels/terraform-azurerm-caf//modules/compute/virtual_machine_extensions?ref=vmss-extensions-autoscale-combined"
   depends_on = [module.solution]
 
   for_each = {
