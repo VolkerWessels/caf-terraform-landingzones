@@ -78,3 +78,6 @@ variable "wvd_workspaces" {
 variable "runbooks" {
   default = {}
 }
+variable "image_definitions" {
+  default = {}
+}
