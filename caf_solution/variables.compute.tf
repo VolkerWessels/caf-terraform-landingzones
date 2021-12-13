@@ -75,9 +75,3 @@ variable "wvd_host_pools" {
 variable "wvd_workspaces" {
   default = {}
 }
-variable "runbooks" {
-  default = {}
-}
-variable "image_definitions" {
-  default = {}
-}
