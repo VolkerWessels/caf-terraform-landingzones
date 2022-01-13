@@ -95,7 +95,7 @@ module "vm_extension_custom_scriptextension" {
   # source  = "aztfmod/caf/azurerm//modules/compute/virtual_machine_extensions"
   # version = "5.5.5"
 
-  source = "git::https://github.com/aztfmod/terraform-azurerm-caf.git//modules/compute/virtual_machine_extensions?ref=main"
+  source = "git::https://github.com/volkerwessels/terraform-azurerm-caf.git//modules/compute/virtual_machine_extensions?ref=vw-combined"
 
   depends_on = [module.solution, module.vm_extension_microsoft_azure_domainjoin]
 
