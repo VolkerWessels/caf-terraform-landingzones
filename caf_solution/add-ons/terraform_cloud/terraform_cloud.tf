@@ -1,3 +1,7 @@
+data "tfe_organization" "vw" {
+  name = "var.tfe_organization"
+}
+
 resource "tfe_organization" "tfe_org" {
   for_each = try(var.tfe_organizations, {})
 
