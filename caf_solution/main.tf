@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "volkerwessels"
+
+    workspaces {
+      name = var.workspace
+    }
+  }
   required_providers {
     // azurerm version driven by the caf module
     // azuread version driven by the caf module
@@ -21,6 +28,10 @@ terraform {
     azurecaf = {
       source  = "aztfmod/azurecaf"
       version = "~>1.2.0"
+    }
+    tfe = {
+      source  = "hashicorp/tfe"
+      version = "~> 0.26.1"
     }
   }
   required_version = ">= 0.13"
@@ -64,6 +75,10 @@ locals {
       tenant_id            = var.tenant_id
       subscription_id      = data.azurerm_client_config.current.subscription_id
     }
+    tfc = {
+      level           = var.landingzone.level
+      tenant_id       = data.azurerm_client_config.current.tenant_id
+      subscription_id = data.azurerm_client_config.current.subscription_id
+    }
   }
-
 }
