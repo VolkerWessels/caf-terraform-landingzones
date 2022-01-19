@@ -66,7 +66,7 @@ resource "null_resource" "backend_file" {
   }
   provisioner "local-exec" {
     working_dir = "./"
-    command     = "echo organization = \\\"${tfe_organization.tfe_org[each.value.organization_key].name}\\\" >> ${path.cwd}${each.value.backend_file}"
+    command     = "echo organization = \\\"${try(each.value.organization, tfe_organization.tfe_org[each.value.organization_key].name)}\\\" >> ${path.cwd}${each.value.backend_file}"
   }
 }
 
