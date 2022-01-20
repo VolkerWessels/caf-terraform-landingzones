@@ -6,6 +6,10 @@ variable "tags" {
   default = null
 }
 
+variable "tfe_organization" {
+  default = {}
+}
+
 variable "tfe_organizations" {
   default = {}
 }
