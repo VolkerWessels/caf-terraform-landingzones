@@ -58,3 +58,22 @@ module "vmss_extension_keyvault_extension" {
   extension                    = each.value.virtual_machine_scale_set_extensions.keyvault_extension
   extension_name               = "microsoft_azure_keyvault"
 }
+
+module "vmss_extension_application_health_extension" {
+  # source  = "aztfmod/caf/azurerm//modules/compute/virtual_machine_scale_set_extensions"
+  # version = "5.5.1"
+
+  source = "git::https://github.com/VolkerWessels/terraform-azurerm-caf.git//modules/compute/virtual_machine_scale_set_extensions?ref=vw-combined"
+
+  depends_on = [module.solution]
+
+  for_each = {
+    for key, value in try(var.virtual_machine_scale_sets, {}) : key => value
+    if try(value.virtual_machine_scale_set_extensions.microsoft_azure_health_extension, null) != null
+  }
+
+  client_config                = module.solution.client_config
+  virtual_machine_scale_set_id = module.solution.virtual_machine_scale_sets[each.key].id
+  extension                    = each.value.virtual_machine_scale_set_extensions.microsoft_azure_health_extension
+  extension_name               = "microsoft_azure_health_extension"
+}
