@@ -41,10 +41,10 @@ module "vmss_extension_custom_scriptextension" {
 }
 
 module "vmss_extension_keyvault_extension" {
-  source  = "aztfmod/caf/azurerm//modules/compute/virtual_machine_scale_set_extensions"
-  version = "5.5.1"
+  # source  = "aztfmod/caf/azurerm//modules/compute/virtual_machine_scale_set_extensions"
+  # version = "5.5.1"
 
-  # source = "git::https://github.com/aztfmod/terraform-azurerm-caf.git//modules/compute/virtual_machine_scale_set_extensions?ref=master"
+  source = "git::https://github.com/VolkerWessels/terraform-azurerm-caf.git//modules/compute/virtual_machine_scale_set_extensions?ref=vw-combined"
 
   depends_on = [module.solution]
 
