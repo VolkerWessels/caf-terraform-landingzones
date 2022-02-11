@@ -237,7 +237,7 @@ variable "diagnostic_log_analytics" {
   default = {}
 }
 variable "var_folder_path" {
-  default = null
+  default = ""
 }
 variable "propagate_launchpad_identities" {
   default = false
