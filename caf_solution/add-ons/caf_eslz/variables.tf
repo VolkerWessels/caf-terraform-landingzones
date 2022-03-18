@@ -249,3 +249,33 @@ variable "deploy_identity_resources" {
 variable "subscription_id_identity" {
   type = string
 }
+
+variable "configure_identity_resources" {
+  type = object({
+    settings = object({
+      identity = object({
+        enabled = bool
+        config = object({
+          enable_deny_public_ip             = bool
+          enable_deny_rdp_from_internet     = bool
+          enable_deny_subnet_without_nsg    = bool
+          enable_deploy_azure_backup_on_vms = bool
+        })
+      })
+    })
+  })
+  description = "If specified, will customize the \"Identity\" landing zone settings."
+  default = {
+    settings = {
+      identity = {
+        enabled = true
+        config = {
+          enable_deny_public_ip             = true
+          enable_deny_rdp_from_internet     = true
+          enable_deny_subnet_without_nsg    = true
+          enable_deploy_azure_backup_on_vms = true
+        }
+      }
+    }
+  }
+}
