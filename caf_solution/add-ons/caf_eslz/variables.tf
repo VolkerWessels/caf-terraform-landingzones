@@ -240,3 +240,9 @@ variable "reconcile_vending_subscriptions" {
   default     = false
   description = "Will reconcile the subrisciptions created outside of enterprise scale to prevent them to be revoved by the execution of this module."
 }
+
+variable "deploy_identity_resources" {
+  type    = bool
+  default = false
+}
+
