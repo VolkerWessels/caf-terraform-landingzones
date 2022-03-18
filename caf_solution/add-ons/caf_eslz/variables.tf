@@ -250,32 +250,13 @@ variable "subscription_id_identity" {
   type = string
 }
 
-variable "configure_identity_resources" {
-  type = object({
-    settings = object({
-      identity = object({
-        enabled = bool
-        config = object({
-          enable_deny_public_ip             = bool
-          enable_deny_rdp_from_internet     = bool
-          enable_deny_subnet_without_nsg    = bool
-          enable_deploy_azure_backup_on_vms = bool
-        })
-      })
-    })
-  })
-  description = "If specified, will customize the \"Identity\" landing zone settings."
-  default = {
-    settings = {
-      identity = {
-        enabled = true
-        config = {
-          enable_deny_public_ip             = true
-          enable_deny_rdp_from_internet     = true
-          enable_deny_subnet_without_nsg    = true
-          enable_deploy_azure_backup_on_vms = true
-        }
-      }
-    }
-  }
+variable "configure_identity_resources" {}
+
+variable "deploy_management_resources" {
+  type        = bool
+  description = "If set to true, will enable the \"Management\" landing zone settings and add \"Management\" resources into the current Subscription context."
+  default     = false
 }
+
+variable "configure_management_resources" {}
+
