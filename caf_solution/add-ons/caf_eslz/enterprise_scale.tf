@@ -16,14 +16,14 @@ module "enterprise_scale" {
   default_location = local.global_settings.regions[local.global_settings.default_region]
 
   #path to the policies definition and assignment repo
-  library_path               = var.library_path
-  archetype_config_overrides = local.archetype_config_overrides
-  custom_landing_zones       = local.custom_landing_zones
-  deploy_core_landing_zones  = var.deploy_core_landing_zones
-  root_id                    = var.root_id
-  root_name                  = var.root_name
-  subscription_id_overrides  = local.subscription_id_overrides
-  deploy_identity_resources  = var.deploy_identity_resources
-  subscription_id_identity   = var.subscription_id_identity
+  library_path                 = var.library_path
+  archetype_config_overrides   = local.archetype_config_overrides
+  custom_landing_zones         = local.custom_landing_zones
+  deploy_core_landing_zones    = var.deploy_core_landing_zones
+  root_id                      = var.root_id
+  root_name                    = var.root_name
+  subscription_id_overrides    = local.subscription_id_overrides
+  deploy_identity_resources    = var.deploy_identity_resources
+  subscription_id_identity     = var.subscription_id_identity
   configure_identity_resources = var.configure_identity_resources
 }
