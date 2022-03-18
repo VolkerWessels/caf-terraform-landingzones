@@ -246,3 +246,6 @@ variable "deploy_identity_resources" {
   default = false
 }
 
+variable "subscription_id_identity" {
+  type = string
+}
