@@ -260,3 +260,6 @@ variable "deploy_management_resources" {
 
 variable "configure_management_resources" {}
 
+variable "subscription_id_identity" {
+  type = string
+}
