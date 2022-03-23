@@ -373,13 +373,11 @@ variable "configure_management_resources" {
 }
 
 variable "subscription_id_management" {
-  type    = string
-  default = "00000000-0000-0000-0000-000000000000"
+  type = string
 }
 
 variable "subscription_id_connectivity" {
-  type    = string
-  default = "00000000-0000-0000-0000-000000000000"
+  type = string
 }
 
 variable "disable_base_module_tags" {
