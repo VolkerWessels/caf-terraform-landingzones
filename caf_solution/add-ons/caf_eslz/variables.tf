@@ -372,6 +372,12 @@ variable "configure_management_resources" {
   }
 }
 
+variable "deploy_connectivity_resources" {
+  type        = bool
+  description = "If set to true, will enable the \"Connectivity\" landing zone settings and add \"Connectivity\" resources into the current Subscription context."
+  default     = false
+}
+
 variable "subscription_id_management" {
   type = string
 }
