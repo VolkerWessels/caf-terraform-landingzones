@@ -20,7 +20,7 @@ provider "azurerm" {
 # This will be used for the deployment of all "Connectivity resources" to the specified `subscription_id`.
 provider "azurerm" {
   alias           = "connectivity"
-  subscription_id = try(var.subscription_id_connectivity, null)
+  subscription_id = var.subscription_id_connectivity == null ? data.azurerm_client_config.connectivity.subscription_id : var.subscription_id_connectivity
   features {}
 }
 
@@ -28,7 +28,7 @@ provider "azurerm" {
 # This will be used for the deployment of all "Management resources" to the specified `subscription_id`.
 provider "azurerm" {
   alias           = "management"
-  subscription_id = try(var.subscription_id_management, null)
+  subscription_id = var.subscription_id_management == null ? data.azurerm_client_config.management.subscription_id : var.subscription_id_management
   features {}
 }
 
