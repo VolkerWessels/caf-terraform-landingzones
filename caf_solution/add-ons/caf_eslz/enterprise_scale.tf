@@ -33,4 +33,5 @@ module "enterprise_scale" {
   deploy_management_resources    = var.deploy_management_resources
   configure_management_resources = var.configure_management_resources
   disable_base_module_tags       = var.disable_base_module_tags
+  default_tags                   = var.default_tags
 }
