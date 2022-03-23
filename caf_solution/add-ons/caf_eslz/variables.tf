@@ -390,6 +390,10 @@ variable "disable_base_module_tags" {
   type = bool
 }
 
+variable "tags" {
+  type = map(any)
+}
+
 variable "default_tags" {
   type = map(any)
 }
