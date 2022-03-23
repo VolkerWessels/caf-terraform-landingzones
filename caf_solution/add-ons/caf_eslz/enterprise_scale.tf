@@ -14,7 +14,7 @@ module "enterprise_scale" {
     azurerm.management   = azurerm
   }
 
-  root_parent_id   = var.root_parent_id == null ? data.azurerm_client_config.current.tenant_id : var.root_parent_id
+  root_parent_id   = var.root_parent_id == null ? data.azurerm_client_config.core.tenant_id : var.root_parent_id
   default_location = local.global_settings.regions[local.global_settings.default_region]
 
   #path to the policies definition and assignment repo
