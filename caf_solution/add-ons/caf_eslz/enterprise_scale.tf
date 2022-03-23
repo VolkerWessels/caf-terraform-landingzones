@@ -31,4 +31,5 @@ module "enterprise_scale" {
   configure_identity_resources   = var.configure_identity_resources
   deploy_management_resources    = var.deploy_management_resources
   configure_management_resources = var.configure_management_resources
+  disable_base_module_tags       = var.disable_base_module_tags
 }
