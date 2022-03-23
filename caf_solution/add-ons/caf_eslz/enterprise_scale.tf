@@ -29,9 +29,9 @@ module "enterprise_scale" {
   subscription_id_management     = var.subscription_id_management == null ? data.azurerm_client_config.management.subscription_id : var.subscription_id_management
   subscription_id_connectivity   = var.subscription_id_connectivity == null ? data.azurerm_client_config.connectivity.subscription_id : var.subscription_id_connectivity
   deploy_identity_resources      = var.deploy_identity_resources
-  configure_identity_resources   = var.configure_identity_resources
   deploy_connectivity_resources  = var.deploy_connectivity_resources
   deploy_management_resources    = var.deploy_management_resources
+  configure_identity_resources   = var.configure_identity_resources
   configure_management_resources = var.configure_management_resources
   disable_base_module_tags       = var.disable_base_module_tags
   default_tags                   = var.default_tags
