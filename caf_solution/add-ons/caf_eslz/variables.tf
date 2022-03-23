@@ -377,5 +377,5 @@ variable "subscription_id_management" {
 }
 
 variable "disable_base_module_tags" {
-  type = boolean
+  type = bool
 }
