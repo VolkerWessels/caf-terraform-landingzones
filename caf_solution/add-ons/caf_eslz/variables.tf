@@ -383,3 +383,7 @@ variable "subscription_id_connectivity" {
 variable "disable_base_module_tags" {
   type = bool
 }
+
+variable "default_tags" {
+  type = map(any)
+}
