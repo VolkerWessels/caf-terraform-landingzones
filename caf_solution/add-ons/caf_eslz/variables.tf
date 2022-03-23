@@ -375,3 +375,7 @@ variable "configure_management_resources" {
 variable "subscription_id_management" {
   type = string
 }
+
+variable "disable_base_module_tags" {
+  type = boolean
+}
