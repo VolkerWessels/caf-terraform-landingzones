@@ -35,6 +35,4 @@ module "enterprise_scale" {
   configure_management_resources = var.configure_management_resources
   disable_base_module_tags       = var.disable_base_module_tags
   default_tags                   = coalesce(var.tags, var.default_tags, null)
-  resource_prefix                = var.resource_prefix
-  resource_suffix                = var.resource_suffix
 }
