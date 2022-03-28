@@ -393,3 +393,11 @@ variable "disable_base_module_tags" {
 variable "default_tags" {
   type = map(any)
 }
+
+variable "resource_suffix"{
+  type = string
+}
+
+variable "resource_prefix" {
+  type = string
+}
