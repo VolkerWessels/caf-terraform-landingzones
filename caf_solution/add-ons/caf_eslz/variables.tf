@@ -246,9 +246,9 @@ variable "deploy_identity_resources" {
   default = false
 }
 
-variable "subscription_id_identity" {
+/* variable "subscription_id_identity" {
   type = string
-}
+} */
 
 variable "configure_identity_resources" {
   type = object({
@@ -378,18 +378,18 @@ variable "deploy_connectivity_resources" {
   default     = false
 }
 
-variable "subscription_id_management" {
+/* variable "subscription_id_management" {
   type = string
-}
+} */
 
-variable "subscription_id_connectivity" {
+/* variable "subscription_id_connectivity" {
   type = string
-}
+} */
 
-variable "disable_base_module_tags" {
+/* variable "disable_base_module_tags" {
   type = bool
 }
 
 variable "default_tags" {
   type = map(any)
-}
+} */
