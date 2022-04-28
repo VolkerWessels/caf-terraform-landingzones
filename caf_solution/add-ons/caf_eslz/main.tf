@@ -19,19 +19,19 @@ provider "azurerm" {
 
 # Declare an aliased provider block using your preferred configuration.
 # This will be used for the deployment of all "Connectivity resources" to the specified `subscription_id`.
-provider "azurerm" {
+/* provider "azurerm" {
   alias           = "connectivity"
   subscription_id = coalesce(var.subscription_id_connectivity, null)
   features {}
-}
+} */
 
 # Declare a standard provider block using your preferred configuration.
 # This will be used for the deployment of all "Management resources" to the specified `subscription_id`.
-provider "azurerm" {
+/* provider "azurerm" {
   alias           = "management"
   subscription_id = coalesce(var.subscription_id_management, null)
   features {}
-}
+} */
 
 data "azurerm_client_config" "core" {
   provider = azurerm
