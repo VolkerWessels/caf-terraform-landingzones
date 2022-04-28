@@ -14,7 +14,7 @@ module "enterprise_scale" {
     azurerm.management   = azurerm
   }
 
-  root_parent_id   = var.root_parent_id == null ? data.azurerm_client_config.core.tenant_id : var.root_parent_id
+  root_parent_id   = var.root_parent_id == null ? data.azurerm_client_config.current.tenant_id : var.root_parent_id
   default_location = local.global_settings.regions[local.global_settings.default_region]
 
   #path to the policies definition and assignment repo
@@ -26,13 +26,13 @@ module "enterprise_scale" {
   root_name                      = var.root_name
   subscription_id_overrides      = local.subscription_id_overrides
   # subscription_id_identity       = var.subscription_id_identity == null ? data.azurerm_client_config.core.subscription_id : var.subscription_id_identity
-  subscription_id_management     = var.subscription_id_management == null ? data.azurerm_client_config.management.subscription_id : var.subscription_id_management
-  subscription_id_connectivity   = var.subscription_id_connectivity == null ? data.azurerm_client_config.connectivity.subscription_id : var.subscription_id_connectivity
-  deploy_identity_resources      = var.deploy_identity_resources
-  deploy_connectivity_resources  = var.deploy_connectivity_resources
-  deploy_management_resources    = var.deploy_management_resources
-  configure_identity_resources   = var.configure_identity_resources
-  configure_management_resources = var.configure_management_resources
+  # subscription_id_management     = var.subscription_id_management == null ? data.azurerm_client_config.management.subscription_id : var.subscription_id_management
+  # subscription_id_connectivity   = var.subscription_id_connectivity == null ? data.azurerm_client_config.connectivity.subscription_id : var.subscription_id_connectivity
+  # deploy_identity_resources      = var.deploy_identity_resources
+  # deploy_connectivity_resources  = var.deploy_connectivity_resources
+  # deploy_management_resources    = var.deploy_management_resources
+  # configure_identity_resources   = var.configure_identity_resources
+  # configure_management_resources = var.configure_management_resources
   # disable_base_module_tags       = var.disable_base_module_tags
   # default_tags                   = coalesce(var.tags, var.default_tags, null)
 }
