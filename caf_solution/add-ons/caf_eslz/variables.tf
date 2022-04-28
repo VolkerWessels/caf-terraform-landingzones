@@ -241,16 +241,16 @@ variable "reconcile_vending_subscriptions" {
   description = "Will reconcile the subrisciptions created outside of enterprise scale to prevent them to be revoved by the execution of this module."
 }
 
-variable "deploy_identity_resources" {
+/* variable "deploy_identity_resources" {
   type    = bool
   default = false
-}
+} */
 
 /* variable "subscription_id_identity" {
   type = string
 } */
 
-variable "configure_identity_resources" {
+/* variable "configure_identity_resources" {
   type = object({
     settings = object({
       identity = object({
@@ -278,15 +278,15 @@ variable "configure_identity_resources" {
       }
     }
   }
-}
+} */
 
-variable "deploy_management_resources" {
+/* variable "deploy_management_resources" {
   type        = bool
   description = "If set to true, will enable the \"Management\" landing zone settings and add \"Management\" resources into the current Subscription context."
   default     = false
-}
+} */
 
-variable "configure_management_resources" {
+/* variable "configure_management_resources" {
   type = object({
     settings = object({
       log_analytics = object({
@@ -370,13 +370,13 @@ variable "configure_management_resources" {
     tags     = null
     advanced = null
   }
-}
+} */
 
-variable "deploy_connectivity_resources" {
+/* variable "deploy_connectivity_resources" {
   type        = bool
   description = "If set to true, will enable the \"Connectivity\" landing zone settings and add \"Connectivity\" resources into the current Subscription context."
   default     = false
-}
+} */
 
 /* variable "subscription_id_management" {
   type = string
