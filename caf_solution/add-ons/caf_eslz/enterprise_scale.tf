@@ -4,7 +4,8 @@ module "enterprise_scale" {
   #source = "git::https://github.com/Azure/terraform-azurerm-caf-enterprise-scale.git?ref=main"
 
   source  = "Azure/caf-enterprise-scale/azurerm"
-  version = "2.0.0"
+  #version = "2.0.0"
+  version = "1.2.0"
 
   # source = "/tf/caf/alz"
 
