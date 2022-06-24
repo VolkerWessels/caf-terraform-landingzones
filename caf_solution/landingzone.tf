@@ -1,5 +1,5 @@
 module "solution" {
-  source = "git::https://github.com/VolkerWessels/terraform-azurerm-caf.git?ref=vw-combined"
+  source = "git::https://github.com/VolkerWessels/terraform-azurerm-caf.git?ref=automation_updates"
   # source  = "aztfmod/caf/azurerm"
   # version = "5.5.5"
 
