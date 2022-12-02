@@ -2,13 +2,12 @@
 terraform {
   required_providers {
     azurerm = {
-      source  = "hashicorp/azurerm"
+      source = "hashicorp/azurerm"
       #version = "~> 2.96"
       version = ">= 3.0.2"
     }
   }
   required_version = ">= 0.14"
-  experiments      = [module_variable_optional_attrs]
 }
 
 
