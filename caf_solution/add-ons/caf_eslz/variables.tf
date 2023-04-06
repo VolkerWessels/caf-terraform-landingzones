@@ -251,7 +251,7 @@ variable "tf_cloud_hostname" {
   description = "When user backend_type with remote, set the TFC/TFE hostname."
 }
 
-variable "deploy_diagnostics_for_mg " {
+variable "deploy_diagnostics_for_mg" {
   type        = bool
   description = "If set to true, will deploy Diagnostic Settings for management groups"
   default     = false
