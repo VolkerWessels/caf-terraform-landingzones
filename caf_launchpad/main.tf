@@ -94,6 +94,14 @@ resource "random_string" "prefix" {
   numeric = false
 }
 
+resource "random_string" "suffix" {
+  count   = var.suffix == null ? 1 : 0
+  length  = 4
+  special = false
+  upper   = false
+  numeric = false
+}
+
 locals {
   landingzone_tag = {
     "landingzone" = var.landingzone.key
