@@ -3,10 +3,12 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">= 3.35.0"
+      #version = "~> 2.96"
+      version = ">= 3.35" # upped the version to allow v2.0.0+ caf_eslz support
     }
   }
   required_version = ">= 1.1.0"
+  # experiments      = [module_variable_optional_attrs]
 }
 
 
