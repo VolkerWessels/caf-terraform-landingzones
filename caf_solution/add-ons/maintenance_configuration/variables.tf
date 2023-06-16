@@ -69,3 +69,4 @@ variable "azurerm_maintenance_configurations" {
   default     = {}
   description = "Differend maintenance configs"
 }
+variable "azurerm_maintenance_configuration" {}
