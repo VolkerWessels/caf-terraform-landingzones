@@ -65,7 +65,6 @@ variable "tags" {
 ####
 
 variable "azurerm_maintenance_configurations" {
-  type        = map(any)
   default     = {}
   description = "Differend maintenance configs"
 }
