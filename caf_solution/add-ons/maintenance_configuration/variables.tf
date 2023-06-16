@@ -70,3 +70,4 @@ variable "azurerm_maintenance_configurations" {
   description = "Differend maintenance configs"
 }
 
+variable "resource_group_name" {}
