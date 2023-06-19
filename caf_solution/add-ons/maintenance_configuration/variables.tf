@@ -66,7 +66,7 @@ variable "tags" {
 
 variable "azurerm_maintenance_configurations" {
   default     = {}
-  type        = list()
+  type        = list(string)
   description = "Differend maintenance configs"
 }
 
