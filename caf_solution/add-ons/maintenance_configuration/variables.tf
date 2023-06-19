@@ -84,14 +84,10 @@ variable "azurerm_maintenance_configurations" {
     install_patches = {
       reboot = {}
       windows = {
-        classifications_to_include = list(string)
-        kb_numbers_to_exclude      = list(string)
-        kb_numbers_to_include      = list(string)
+        type = list(string)
       }
       linux = {
-        classifications_to_include    = list(string)
-        package_names_mask_to_exclude = list(string)
-        package_names_mask_to_include = list(string)
+        type = list(string)
       }
     }
   }
