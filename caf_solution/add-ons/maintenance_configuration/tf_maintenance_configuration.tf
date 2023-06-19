@@ -13,21 +13,21 @@ resource "azurerm_maintenance_configuration" "mc" {
     recur_every          = try(each.value.window.recur_every, null)
     time_zone            = try(each.value.window.time_zone, "W. Europe Standard Time")
     duration             = try(each.value.window.duration, null)
-  }
-  install_patches {
-    windows {
-      classifications_to_include = try([each.value.windows.classifications_to_include], null)
-      kb_numbers_to_exclude      = try([each.value.windows.kb_numbers_to_exclude], null)
-      kb_numbers_to_include      = try([each.value.windows.kb_numbers_to_include], null)
-    }
-    linux {
-      classifications_to_include    = try([each.value.linux.classifications_to_include], null)
-      package_names_mask_to_exclude = try(each.value.linux.package_names_mask_to_exclude, null)
-      package_names_mask_to_include = try(each.value.linux.package_names_mask_to_include, null)
-    }
-    reboot = try(each.value.install_patches.reboot, "Never")
-  }
 
+    install_patches {
+      windows {
+        classifications_to_include = try([each.value.windows.classifications_to_include], null)
+        kb_numbers_to_exclude      = try([each.value.windows.kb_numbers_to_exclude], null)
+        kb_numbers_to_include      = try([each.value.windows.kb_numbers_to_include], null)
+      }
+      linux {
+        classifications_to_include    = try([each.value.linux.classifications_to_include], null)
+        package_names_mask_to_exclude = try(each.value.linux.package_names_mask_to_exclude, null)
+        package_names_mask_to_include = try(each.value.linux.package_names_mask_to_include, null)
+      }
+      reboot = try(each.value.install_patches.reboot, "Never")
+    }
+  }
   in_guest_user_patch_mode = try(each.value.in_guest_user_patch_mode, "user")
   properties               = try(each.value.properties, null)
   tags                     = try(each.value.tags, null)
