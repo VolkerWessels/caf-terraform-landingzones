@@ -22,8 +22,8 @@ resource "azurerm_maintenance_configuration" "mc" {
     }
     linux {
       classifications_to_include    = try([each.value.install_patches.linux.classifications_to_include], null)
-      package_names_mask_to_exclude = try(each.value.install_patches.linux.package_names_mask_to_exclude, null)
-      package_names_mask_to_include = try(each.value.install_patches.linux.package_names_mask_to_include, null)
+      package_names_mask_to_exclude = try([each.value.install_patches.linux.package_names_mask_to_exclude], null)
+      package_names_mask_to_include = try([each.value.install_patches.linux.package_names_mask_to_include], null)
     }
     reboot = try(each.value.install_patches.reboot, "Never")
   }
