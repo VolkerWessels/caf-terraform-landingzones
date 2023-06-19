@@ -64,9 +64,9 @@ variable "tags" {
 
 ####
 
-# variable "resource_group_name" {
-#   default = {}
-# }
+variable "resource_group_name" {
+  default = {}
+}
 
 variable "azurerm_maintenance_configurations" {
   default = {}
