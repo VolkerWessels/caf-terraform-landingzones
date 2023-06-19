@@ -69,25 +69,6 @@ variable "tags" {
 # }
 
 variable "azurerm_maintenance_configurations" {
-  default = {
-    name                = {}
-    resource_group_name = {}
-    location            = {}
-    scope               = {}
-    window = {
-      start_date_time      = {}
-      expiration_date_time = {}
-      recur_every          = {}
-      time_zone            = {}
-      duration             = {}
-    }
-    install_patches = {
-      reboot = {}
-      windows = {
-      }
-      linux = {
-
-      }
-    }
-  }
+  default = {}
 }
+
