@@ -64,11 +64,35 @@ variable "tags" {
 
 ####
 
-variable "azurerm_maintenance_configurations" {
-  type        = map(any)
-  description = "Differend maintenance configs"
-}
+# variable "resource_group_name" {
+#   default = {}
+# }
 
-variable "resource_group_name" {
-  default = {}
+variable "azurerm_maintenance_configurations" {
+  default = {
+    name                = {}
+    resource_group_name = {}
+    location            = {}
+    scope               = {}
+    window = {
+      start_date_time      = {}
+      expiration_date_time = {}
+      recur_every          = {}
+      time_zone            = {}
+      duration             = {}
+    }
+    install_patches = {
+      reboot = {}
+      windows = {
+        classifications_to_include = list(string)
+        kb_numbers_to_exclude      = list(string)
+        kb_numbers_to_include      = list(string)
+      }
+      linux = {
+        classifications_to_include    = list(string)
+        package_names_mask_to_exclude = list(string)
+        package_names_mask_to_include = list(string)
+      }
+    }
+  }
 }
