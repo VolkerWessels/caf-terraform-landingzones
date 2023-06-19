@@ -84,10 +84,9 @@ variable "azurerm_maintenance_configurations" {
     install_patches = {
       reboot = {}
       windows = {
-        type = list(string)
       }
       linux = {
-        type = list(string)
+
       }
     }
   }
