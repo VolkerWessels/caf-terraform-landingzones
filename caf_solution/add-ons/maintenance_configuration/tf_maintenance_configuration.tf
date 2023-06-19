@@ -28,7 +28,7 @@ resource "azurerm_maintenance_configuration" "mc" {
     reboot = try(each.value.install_patches.reboot, "Never")
   }
 
-  in_guest_user_patch_mode = try(each.value.in_guest_user_patch_mode, "user")
+  in_guest_user_patch_mode = try(each.value.in_guest_user_patch_mode, "User")
   properties               = try(each.value.properties, null)
   tags                     = try(each.value.tags, null)
 }
