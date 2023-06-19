@@ -21,7 +21,7 @@ resource "azurerm_maintenance_configuration" "mc" {
       kb_numbers_to_include      = try([each.value.windows.kb_numbers_to_include], null)
     }
     linux {
-      classifications_to_include    = try([each.value.linux.classifications_to_include])
+      classifications_to_include    = try([each.value.linux.classifications_to_include], null)
       package_names_mask_to_exclude = try(each.value.linux.package_names_mask_to_exclude, null)
       package_names_mask_to_include = try(each.value.linux.package_names_mask_to_include, null)
     }
