@@ -5,7 +5,7 @@ resource "azurerm_maintenance_configuration" "mc" {
   resource_group_name = each.value.resource_group_name
 
   location   = try(each.value.location)
-  scope      = try(each.value.scope, null)
+  scope      = try(each.value.scope)
   visibility = try(each.value.visibility, null)
   window {
     start_date_time      = try(each.value.window.start_date_time, null)
@@ -16,14 +16,14 @@ resource "azurerm_maintenance_configuration" "mc" {
   }
   install_patches {
     windows {
-      classifications_to_include = try(each.value.install_patches.windows.classifications_to_include, [])
-      kb_numbers_to_exclude      = try(each.value.install_patches.windows.kb_numbers_to_exclude, [])
-      kb_numbers_to_include      = try(each.value.install_patches.windows.kb_numbers_to_include, [])
+      classifications_to_include = try(each.value.install_patches.windows.classifications_to_include)
+      kb_numbers_to_exclude      = try(each.value.install_patches.windows.kb_numbers_to_exclude)
+      kb_numbers_to_include      = try(each.value.install_patches.windows.kb_numbers_to_include)
     }
     linux {
-      classifications_to_include    = try(each.value.install_patches.linux.classifications_to_include, [])
-      package_names_mask_to_exclude = try(each.value.install_patches.linux.package_names_mask_to_exclude, [])
-      package_names_mask_to_include = try(each.value.install_patches.linux.package_names_mask_to_include, [])
+      classifications_to_include    = try(each.value.install_patches.linux.classifications_to_include)
+      package_names_mask_to_exclude = try(each.value.install_patches.linux.package_names_mask_to_exclude)
+      package_names_mask_to_include = try(each.value.install_patches.linux.package_names_mask_to_include)
     }
     reboot = try(each.value.install_patches.reboot, null)
   }
