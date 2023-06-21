@@ -1,9 +1,5 @@
 module "launchpad" {
-  # source  = "aztfmod/caf/azurerm"
-
-  # during dev cycles for the module, you can pick dev branches from GitHub, or from a local fork
-  source = "git::https://github.com/VolkerWessels/terraform-azurerm-caf.git?ref=vw-combined"
-  # source = "../../aztfmod"
+  source  = "aztfmod/caf/azurerm"
   version = "5.6.10"
 
   providers = {
