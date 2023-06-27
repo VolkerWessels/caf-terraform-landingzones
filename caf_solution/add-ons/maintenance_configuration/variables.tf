@@ -72,3 +72,7 @@ variable "azurerm_maintenance_configurations" {
   default = {}
 }
 
+variable "resource_groups" {
+  default = {}
+}
+
