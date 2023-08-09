@@ -3,8 +3,8 @@
 module "enterprise_scale" {
   source  = "Azure/caf-enterprise-scale/azurerm"
   #source  = "VolkerWessels/caf-enterprise-scale/azurerm"
-  #version = "3.3.0"
-  version = "4.2.0"
+  version = "3.3.0"
+  #version = "4.2.0"
 
   # source = "/tf/caf/alz"
 
