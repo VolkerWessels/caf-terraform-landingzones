@@ -7,7 +7,7 @@ module "enterprise_scale" {
   #source = "github.com/VolkerWessels/terraform-azurerm-caf-enterprise-scale/azurerm"
   source = "git::https://github.com/VolkerWessels/terraform-azurerm-caf-enterprise-scale.git//azurerm?ref=3.3.0"
 
-  version = "3.3.0"
+  #version = "3.3.0"
   #version = "4.2.0"
 
   # source = "/tf/caf/alz"
