@@ -2,7 +2,7 @@
 
 module "enterprise_scale" {
   #source  = "Azure/caf-enterprise-scale/azurerm"
-  source  = "VolkerWessels/caf-enterprise-scale/azurerm"
+  source = "git::https://github.com/VolkerWessels/caf-enterprise-scale.git//azurerm"
   version = "3.3.0"
   #version = "4.2.0"
 
