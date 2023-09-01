@@ -14,7 +14,8 @@ resource "azurerm_maintenance_configuration" "mc" {
     time_zone            = try(each.value.window.time_zone, "W. Europe Standard Time")
     duration             = try(each.value.window.duration, null)
   }
-  install_patches {
+  dynamic "install_patches" {
+    for_each = try(each.value.install_patches, null) == null ? [] : [1]
     windows {
       classifications_to_include = try(each.value.install_patches.windows.classifications_to_include, null)
       kb_numbers_to_exclude      = try(each.value.install_patches.windows.kb_numbers_to_exclude, null)
