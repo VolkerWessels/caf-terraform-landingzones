@@ -16,14 +16,14 @@ resource "azurerm_maintenance_configuration" "mc" {
   }
   install_patches {
     windows {
-      classifications_to_include = try(each.value.install_patches.windows.classifications_to_include, [])
-      kb_numbers_to_exclude      = try(each.value.install_patches.windows.kb_numbers_to_exclude, [])
-      kb_numbers_to_include      = try(each.value.install_patches.windows.kb_numbers_to_include, [])
+      classifications_to_include = try(each.value.install_patches.windows.classifications_to_include, null)
+      kb_numbers_to_exclude      = try(each.value.install_patches.windows.kb_numbers_to_exclude, null)
+      kb_numbers_to_include      = try(each.value.install_patches.windows.kb_numbers_to_include, null)
     }
     linux {
-      classifications_to_include    = try(each.value.install_patches.linux.classifications_to_include, [])
-      package_names_mask_to_exclude = try(each.value.install_patches.linux.package_names_mask_to_exclude, [])
-      package_names_mask_to_include = try(each.value.install_patches.linux.package_names_mask_to_include, [])
+      classifications_to_include    = try(each.value.install_patches.linux.classifications_to_include, null)
+      package_names_mask_to_exclude = try(each.value.install_patches.linux.package_names_mask_to_exclude, null)
+      package_names_mask_to_include = try(each.value.install_patches.linux.package_names_mask_to_include, null)
     }
     reboot = try(each.value.install_patches.reboot, null)
   }
