@@ -16,22 +16,24 @@ resource "azurerm_maintenance_configuration" "mc" {
   }
   dynamic "install_patches" {
     for_each = try(each.value.install_patches, null) == null ? [] : [1]
-    windows {
-      classifications_to_include = try(each.value.install_patches.windows.classifications_to_include, null)
-      kb_numbers_to_exclude      = try(each.value.install_patches.windows.kb_numbers_to_exclude, null)
-      kb_numbers_to_include      = try(each.value.install_patches.windows.kb_numbers_to_include, null)
+    content {
+      windows {
+        classifications_to_include = try(each.value.install_patches.windows.classifications_to_include, null)
+        kb_numbers_to_exclude      = try(each.value.install_patches.windows.kb_numbers_to_exclude, null)
+        kb_numbers_to_include      = try(each.value.install_patches.windows.kb_numbers_to_include, null)
+      }
+      linux {
+        classifications_to_include    = try(each.value.install_patches.linux.classifications_to_include, null)
+        package_names_mask_to_exclude = try(each.value.install_patches.linux.package_names_mask_to_exclude, null)
+        package_names_mask_to_include = try(each.value.install_patches.linux.package_names_mask_to_include, null)
+      }
+      reboot = try(each.value.install_patches.reboot, null)
     }
-    linux {
-      classifications_to_include    = try(each.value.install_patches.linux.classifications_to_include, null)
-      package_names_mask_to_exclude = try(each.value.install_patches.linux.package_names_mask_to_exclude, null)
-      package_names_mask_to_include = try(each.value.install_patches.linux.package_names_mask_to_include, null)
-    }
-    reboot = try(each.value.install_patches.reboot, null)
-  }
 
-  in_guest_user_patch_mode = try(each.value.in_guest_user_patch_mode, null)
-  properties               = try(each.value.properties, null)
-  tags                     = try(each.value.tags, null)
+    in_guest_user_patch_mode = try(each.value.in_guest_user_patch_mode, null)
+    properties               = try(each.value.properties, null)
+    tags                     = try(each.value.tags, null)
+  }
 }
 
 
