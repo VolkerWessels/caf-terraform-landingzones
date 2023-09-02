@@ -29,14 +29,8 @@ resource "azurerm_maintenance_configuration" "mc" {
       }
       reboot = try(each.value.install_patches.reboot, null)
     }
-    dynamic "in_guest_user_patch_mode" {
-      for_each = try(each.value.in_guest_user_patch_mode, null) == null ? [] : [1]
-      content {
-        in_guest_user_patch_mode = try(each.value.in_guest_user_patch_mode, null)
-      }
-    }
 
-    # in_guest_user_patch_mode = try(each.value.in_guest_user_patch_mode, null)
+    in_guest_user_patch_mode = try(each.value.in_guest_user_patch_mode, null)
     properties               = try(each.value.properties, null)
     tags                     = try(each.value.tags, null)
   }
