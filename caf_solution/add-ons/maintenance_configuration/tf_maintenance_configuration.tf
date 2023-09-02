@@ -28,11 +28,10 @@ resource "azurerm_maintenance_configuration" "mc" {
         package_names_mask_to_include = try(each.value.install_patches.linux.package_names_mask_to_include, null)
       }
       reboot = try(each.value.install_patches.reboot, null)
-
+    }
     in_guest_user_patch_mode = try(each.value.in_guest_user_patch_mode, null)
     properties               = try(each.value.properties, null)
     tags                     = try(each.value.tags, null)
-    }
   }
 }
 
