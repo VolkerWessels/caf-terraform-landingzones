@@ -68,8 +68,43 @@ variable "resource_group_name" {
   default = {}
 }
 
+# variable "azurerm_maintenance_configurations" {
+#   default = {}
+# }
+
 variable "azurerm_maintenance_configurations" {
-  default = {}
+  type = map(object({
+    name                = string
+    resource_group_name = string
+    location            = string
+    scope               = string
+    visibility          = string
+    window = object({
+      start_date_time      = string
+      expiration_date_time = string
+      recur_every          = string
+      time_zone            = string
+      duration             = string
+    })
+    install_patches = object({
+      windows = object({
+        classifications_to_include = list(string)
+        kb_numbers_to_exclude      = list(string)
+        kb_numbers_to_include      = list(string)
+      })
+      linux = object({
+        classifications_to_include    = list(string)
+        package_names_mask_to_exclude = list(string)
+        package_names_mask_to_include = list(string)
+      })
+      reboot = string
+    })
+    in_guest_user_patch_mode = string
+    properties               = map(string)
+    tags                     = map(string)
+  }))
+  default     = {}
+  description = "A map of Azure Maintenance Configuration objects"
 }
 
 variable "resource_groups" {
