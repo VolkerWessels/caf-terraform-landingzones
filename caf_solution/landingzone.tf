@@ -1,7 +1,7 @@
 module "solution" {
 
   # during dev cycles for the module, you can pick dev branches from GitHub, or from a local fork
-  source = "git::https://github.com/VolkerWessels/terraform-azurerm-caf.git?ref=vw-combined-aisv2"
+  source = "git::https://github.com/VolkerWessels/terraform-azurerm-caf.git?ref=vw-combined-aisv3"
   # source = "../../aztfmod"
   # version = "5.6.10"
 
