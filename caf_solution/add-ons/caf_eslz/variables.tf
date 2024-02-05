@@ -254,3 +254,45 @@ variable "tf_cloud_hostname" {
   default     = "app.terraform.io"
   description = "When user backend_type with remote, set the TFC/TFE hostname."
 }
+
+variable "deploy_diagnostics_for_mg" {
+  type        = bool
+  description = "If set to true, will deploy Diagnostic Settings for management groups"
+  default     = false
+}
+
+variable "create_duration_delay" {
+  type = object({
+    azurerm_management_group      = optional(string, "30s")
+    azurerm_policy_assignment     = optional(string, "30s")
+    azurerm_policy_definition     = optional(string, "30s")
+    azurerm_policy_set_definition = optional(string, "30s")
+    azurerm_role_assignment       = optional(string, "0s")
+    azurerm_role_definition       = optional(string, "60s")
+  })
+  description = "Used to tune terraform apply when faced with errors caused by API caching or eventual consistency. Sets a custom delay period after creation of the specified resource type."
+  default     = {}
+
+  validation {
+    condition     = can([for v in values(var.create_duration_delay) : regex("^[0-9]{1,6}(s|m|h)$", v)])
+    error_message = "The create_duration_delay values must be a string containing the duration in numbers (1-6 digits) followed by the measure of time represented by s (seconds), m (minutes), or h (hours)."
+  }
+}
+
+variable "destroy_duration_delay" {
+  type = object({
+    azurerm_management_group      = optional(string, "0s")
+    azurerm_policy_assignment     = optional(string, "0s")
+    azurerm_policy_definition     = optional(string, "0s")
+    azurerm_policy_set_definition = optional(string, "0s")
+    azurerm_role_assignment       = optional(string, "0s")
+    azurerm_role_definition       = optional(string, "0s")
+  })
+  description = "Used to tune terraform deploy when faced with errors caused by API caching or eventual consistency. Sets a custom delay period after destruction of the specified resource type."
+  default     = {}
+
+  validation {
+    condition     = can([for v in values(var.destroy_duration_delay) : regex("^[0-9]{1,6}(s|m|h)$", v)])
+    error_message = "The destroy_duration_delay values must be a string containing the duration in numbers (1-6 digits) followed by the measure of time represented by s (seconds), m (minutes), or h (hours)."
+  }
+}
