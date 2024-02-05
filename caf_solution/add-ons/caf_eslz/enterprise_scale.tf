@@ -2,8 +2,7 @@
 
 module "enterprise_scale" {
   #source = "git::https://github.com/Azure/terraform-azurerm-caf-enterprise-scale.git?ref=release/v1.2.0"
-  #source = "git::https://github.com/Azure/terraform-azurerm-caf-enterprise-scale.git?ref=v4.2.0"
-  source = "git::https://github.com/Azure/terraform-azurerm-caf-enterprise-scale.git?ref=v5.0.3"
+  source = "git::https://github.com/Azure/terraform-azurerm-caf-enterprise-scale.git?ref=v4.2.0"
   #version = "1.1.3"
   #source  = "Azure/caf-enterprise-scale/azurerm"
   #version = "2.1.0"
