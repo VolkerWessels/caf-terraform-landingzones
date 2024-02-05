@@ -23,7 +23,7 @@ terraform {
       version = "~> 1.2.0"
     }
   }
-  required_version = ">= 1.3.0"
+  required_version = ">= 1.3.5"
 }
 
 
@@ -32,7 +32,7 @@ provider "azurerm" {
   partner_id = "ca4078f8-9bc4-471b-ab5b-3af6b86a42c8"
   features {
     api_management {
-      purge_soft_delete_on_destroy = var.provider_azurerm_features_api_management.purge_soft_delete_on_destroy
+      purge_soft_delete_on_destroy = try(var.provider_azurerm_features_api_management.purge_soft_delete_on_destroy, null)
       # recover_soft_deleted_api_managements = var.provider_azurerm_features_api_management.recover_soft_deleted_api_managements
     }
     # application_insights {
@@ -94,12 +94,20 @@ resource "random_string" "prefix" {
   numeric = false
 }
 
+resource "random_string" "suffix" {
+  count   = var.suffix == null ? 1 : 0
+  length  = 4
+  special = false
+  upper   = false
+  numeric = false
+}
+
 locals {
   landingzone_tag = {
     "landingzone" = var.landingzone.key
   }
 
-  tags = merge(local.global_settings.tags, local.landingzone_tag, { "level" = var.landingzone.level }, { "environment" = local.global_settings.environment }, { "rover_version" = var.rover_version }, var.tags)
+  tags = merge(local.global_settings.tags, local.landingzone_tag, { "environment" = local.global_settings.environment }, { "rover_version" = var.rover_version }, var.tags)
 
   global_settings = {
     default_region     = var.default_region
