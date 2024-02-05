@@ -10,8 +10,8 @@ module "enterprise_scale" {
 
   providers = {
     azurerm              = azurerm
-    azurerm.connectivity = azurerm
-    azurerm.management   = azurerm
+    azurerm.connectivity = azurerm.connectivity
+    azurerm.management   = azurerm.management
   }
 
   root_parent_id   = var.root_parent_id == null ? data.azurerm_client_config.current.tenant_id : var.root_parent_id
