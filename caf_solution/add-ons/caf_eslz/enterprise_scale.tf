@@ -27,7 +27,7 @@ module "enterprise_scale" {
   subscription_id_overrides  = local.subscription_id_overrides
 
   # To support native alz deployment mode
-  configure_connectivity_resources = var.configure_connectivity_resources
+  # configure_connectivity_resources = var.configure_connectivity_resources
   configure_identity_resources     = var.configure_identity_resources
   configure_management_resources   = var.configure_management_resources
   deploy_connectivity_resources    = var.deploy_connectivity_resources
