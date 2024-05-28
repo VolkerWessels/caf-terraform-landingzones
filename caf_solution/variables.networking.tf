@@ -228,3 +228,7 @@ variable "relay_hybrid_connection" {
 variable "relay_namespace" {
   default = {}
 }
+
+variable "vpn_gateway_nat_rules" {
+  default = {}
+}
