@@ -77,6 +77,7 @@ locals {
       vnets                                                   = var.vnets
       vpn_gateway_connections                                 = var.vpn_gateway_connections
       vpn_sites                                               = var.vpn_sites
+      vpn_gateway_nat_rules                                   = var.vpn_gateway_nat_rules
     }
   )
 }
