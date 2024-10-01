@@ -4,7 +4,7 @@ terraform {
     azurerm = {
       source  = "hashicorp/azurerm"
       #version = "~> 2.96"
-      version = "~> 3.116.0" # upped the version to allow v4.0.1+ caf_eslz support
+      version = ">= 3.54" # upped the version to allow v4.0.1+ caf_eslz support
     }
   }
   required_version = ">= 1.3.5"
